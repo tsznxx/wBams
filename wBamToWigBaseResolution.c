@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
 	tmpstruct_t tmp;
 	if (argc == 1) {
 		fprintf(stderr, "wBamToWig version 1.1\n");
-		fprintf(stderr, "Usage: wBamToWigBaseResolution.c   <in.bam>  [normratio]\n\n");
+		fprintf(stderr, "Usage: wBamToWigbr   <in.bam>  [normratio]\n\n");
 		fprintf(stderr, "\tBAM should be sorted.\n");
 		fprintf(stderr, "\tNormalization ratio: nratio= librarysize/1000000. [def=1.0].\n");
 		return 1;

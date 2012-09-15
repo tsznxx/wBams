@@ -28,7 +28,7 @@ void print_bin(int end)
 {
 	if (spancnt++ ==0 || end !=binsize) // first span or last span
 		printf("variableStep chrom=%s span=%d\n", chrom ,end);
-	if (binsum && end ) printf("%d\t%-5.2f\n",curbin*binsize+1,binsum/end);
+	if (binsum && end ) printf("%d\t%-5.2f\n",curbin*binsize+1,binsum/end*ratio);
 	binsum=0;
 }
 // callback for bam_plbuf_init()
@@ -43,7 +43,7 @@ static int pileup_func(uint32_t tid, uint32_t pos, int n, const bam_pileup1_t *p
 			if (curtid !=-1)
 			{
 				if (tmp->in->header->target_len[curtid]/binsize == curbin) // the end of the chrom
-					print_bin(tmp->in->header->target_len[curtid]%binsize+1);
+					print_bin(tmp->in->header->target_len[curtid]%binsize);
 				else
 					print_bin(binsize);
 			}
